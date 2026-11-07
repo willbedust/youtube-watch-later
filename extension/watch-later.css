@@ -1,0 +1,30 @@
+.ytwl-host { position: relative !important; anchor-scope: --ytwl-thumbnail; }
+.ytwl-thumbnail { anchor-name: --ytwl-thumbnail; }
+.ytwl-button {
+  position: absolute !important; position-anchor: --ytwl-thumbnail;
+  top: auto !important; right: auto !important;
+  left: calc(anchor(left) + 8px) !important;
+  bottom: calc(anchor(bottom) + 8px) !important;
+  z-index: 30 !important; display: grid !important; place-items: center !important;
+  width: 32px !important; height: 32px !important; padding: 6px !important;
+  min-width: 32px !important; margin: 0 !important; box-sizing: border-box !important;
+  border: 1px solid #ffffff40 !important; border-radius: 50% !important;
+  background: #121212e8 !important; color: white !important; cursor: pointer !important;
+  pointer-events: auto !important; visibility: visible !important; opacity: 1 !important;
+  box-shadow: 0 1px 4px #0005 !important;
+}
+.ytwl-button:hover { background: #444 !important; }
+.ytwl-button:focus-visible { outline: 2px solid white; outline-offset: 2px; }
+.ytwl-button:disabled { cursor: progress !important; }
+.ytwl-button svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; pointer-events: none; }
+.ytwl-button[data-mode="pending"] svg { animation: ytwl-spin .8s linear infinite; }
+@keyframes ytwl-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .ytwl-button svg { animation: none !important; } }
+[data-ytwl-removed] { display: none !important; }
+#ytwl-notice {
+  position: fixed; left: 24px; bottom: 24px; z-index: 2147483647;
+  max-width: min(460px, calc(100vw - 80px)); padding: 12px 16px;
+  border: 1px solid #777; border-radius: 8px; background: #222; color: white;
+  font: 14px/1.5 Arial, sans-serif; pointer-events: none;
+}
+#ytwl-notice[hidden] { display: none !important; }

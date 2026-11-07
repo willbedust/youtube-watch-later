@@ -1,0 +1,8 @@
+research/
+Watch-Later-Quick-Button-*/
+*.zip
+README.txt
+node_modules/
+.env
+.env.*
+*.log

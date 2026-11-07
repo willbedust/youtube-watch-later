@@ -1,0 +1,199 @@
+
+
+      
+
+
+      /* =====================================================
+         ИГРОТЕКА / PLAYABLES
+         ===================================================== */
+
+      ytd-rich-section-renderer:has(
+        a[href="/playables"]
+      ),
+
+      ytd-rich-section-renderer:has(
+        a[href^="/playables/"]
+      ),
+
+      ytd-rich-shelf-renderer:has(
+        a[href="/playables"]
+      ),
+
+      ytd-rich-shelf-renderer:has(
+        a[href^="/playables/"]
+      ),
+
+      grid-shelf-view-model:has(
+        a[href="/playables"]
+      ),
+
+      grid-shelf-view-model:has(
+        a[href^="/playables/"]
+      ),
+
+      yt-horizontal-list-renderer:has(
+        a[href="/playables"]
+      ),
+
+      yt-horizontal-list-renderer:has(
+        a[href^="/playables/"]
+      ),
+
+      ytd-shelf-renderer:has(
+        a[href="/playables"]
+      ),
+
+      ytd-shelf-renderer:has(
+        a[href^="/playables/"]
+      ) {
+        display: none !important;
+      }
+
+
+      /* =====================================================
+         ИГРОТЕКА В БОКОВОЙ ПАНЕЛИ
+         ===================================================== */
+
+      ytd-guide-entry-renderer:has(
+        a[href="/playables"]
+      ),
+
+      ytd-guide-entry-renderer:has(
+        a[href^="/playables/"]
+      ),
+
+      ytd-mini-guide-entry-renderer:has(
+        a[href="/playables"]
+      ),
+
+      ytd-mini-guide-entry-renderer:has(
+        a[href^="/playables/"]
+      ) {
+        display: none !important;
+      }
+
+
+      /* =====================================================
+         ЕЩЁ ТЕМЫ
+         ===================================================== */
+
+      ytd-browse[page-subtype="home"]
+        ytd-rich-section-renderer:has(
+          .ytChipsShelfViewModelHost
+        ),
+
+      ytd-browse[page-subtype="home"]
+        ytd-rich-section-renderer:has(
+          .ytdChipsShelfWithVideoShelfRendererHost
+        ),
+
+      ytd-browse[page-subtype="home"]
+        ytd-rich-section-renderer:has(
+          ytd-chips-shelf-with-video-shelf-renderer
+        ) {
+        display: none !important;
+      }
+
+
+      /* =====================================================
+         SPONSOR / ЕСТЬ РЕКЛАМА
+         ===================================================== */
+
+      ytm-paid-content-overlay-renderer,
+
+      .ytmPaidContentOverlayHost,
+
+      .YtmPaidContentOverlayHost,
+
+      .ytm-paid-content-overlay-renderer,
+
+      .ytp-paid-content-overlay,
+
+      .ytp-paid-content-overlay-link,
+
+      [class*="PaidContentOverlay"],
+
+      [class*="paidContentOverlay"],
+
+      a[href*="support.google.com/youtube?p=ppp"],
+
+      a[href*="support.google.com/youtube"][href*="p=ppp"],
+
+      a[href*="p=ppp"] {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+      }
+
+    
+/* 7 карточек в ряд во всех rich-grid: главная, подписки, каналы и т. д. */
+ytd-rich-grid-renderer {
+  --ytd-rich-grid-items-per-row: 7 !important;
+  --ytd-rich-grid-posts-per-row: 7 !important;
+}
+
+/* Старый вариант сеток каналов и плейлистов. */
+ytd-grid-renderer > #items {
+  display: grid !important;
+  grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+  gap: 24px 16px !important;
+}
+
+ytd-grid-renderer > #items > :is(
+  ytd-grid-video-renderer,
+  ytd-grid-playlist-renderer,
+  ytd-grid-channel-renderer,
+  ytd-grid-radio-renderer,
+  ytd-grid-show-renderer
+) {
+  width: 100% !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+}
+
+/* Скрываем целые разделы бокового меню по их ссылкам, независимо от языка. */
+ytd-guide-section-renderer:has(
+  :is(
+    a[href="/premium"],
+    a[href^="/premium?"],
+    a[href^="https://music.youtube.com"],
+    a[href^="https://www.youtubekids.com"]
+  )
+),
+ytd-guide-section-renderer:has(
+  :is(
+    a[href="/feed/trending"],
+    a[href="/feed/explore"],
+    a[href="/gaming"],
+    a[href="/feed/storefront"],
+    a[href="/channel/UC-9-kyTW8ZkZNDHQJ6FgpwQ"]
+  )
+) {
+  display: none !important;
+}
+
+/* Промобаннеры YouTube, включая предложения семейной подписки. */
+ytd-statement-banner-renderer,
+ytd-banner-promo-renderer,
+:is(ytd-rich-section-renderer, ytd-rich-item-renderer):has(
+  :is(ytd-statement-banner-renderer, ytd-banner-promo-renderer)
+) {
+  display: none !important;
+}
+
+/* Подборки спонсорства на главной, включая «Получайте от спонсорства больше». */
+ytd-browse[page-subtype="home"]
+:is(ytd-rich-section-renderer, ytd-rich-shelf-renderer, grid-shelf-view-model):has(
+  :is(
+    a[href^="/channel_memberships"],
+    a[href^="https://www.youtube.com/channel_memberships"],
+    .badge-style-type-members-only,
+    [aria-label="Только для спонсоров"],
+    [aria-label="Members only"],
+    [aria-label="Members-only"]
+  )
+) {
+  display: none !important;
+}
+

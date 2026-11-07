@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "Watch Later — Quick Button",
+  "version": "1.0.1",
+  "description": "Кнопка «Смотреть позже» без открытия меню YouTube.",
+  "minimum_chrome_version": "131",
+  "content_scripts": [{
+    "matches": ["https://www.youtube.com/*"],
+    "js": ["watch-later.js"],
+    "css": ["watch-later.css"],
+    "run_at": "document_idle",
+    "world": "MAIN",
+    "all_frames": false
+  }]
+}
